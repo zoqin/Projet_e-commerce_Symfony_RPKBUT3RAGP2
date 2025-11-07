@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\OrderStatus;
 use App\Repository\OrderRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -27,6 +28,9 @@ class Order
      */
     #[ORM\OneToMany(targetEntity: OrderItem::class, mappedBy: 'orderEntity')]
     private Collection $orderItem;
+
+    #[ORM\Column(enumType: OrderStatus::class)]
+    private ?OrderStatus $status = null;
 
     public function __construct()
     {
@@ -95,6 +99,18 @@ class Order
                 $orderItem->setOrderEntity(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStatus(): ?OrderStatus
+    {
+        return $this->status;
+    }
+
+    public function setStatus(OrderStatus $status): static
+    {
+        $this->status = $status;
 
         return $this;
     }

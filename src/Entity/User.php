@@ -36,6 +36,9 @@ class User
     #[ORM\ManyToMany(targetEntity: Address::class, inversedBy: 'users')]
     private Collection $address;
 
+    #[ORM\Column]
+    private array $roles = [];
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
@@ -133,6 +136,18 @@ class User
     public function removeAddress(Address $address): static
     {
         $this->address->removeElement($address);
+
+        return $this;
+    }
+
+    public function getRoles(): array
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(array $roles): static
+    {
+        $this->roles = $roles;
 
         return $this;
     }
