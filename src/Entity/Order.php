@@ -6,6 +6,7 @@ use App\Enum\OrderStatus;
 use App\Repository\OrderRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: OrderRepository::class)]
@@ -32,9 +33,11 @@ class Order
     #[ORM\Column(enumType: OrderStatus::class)]
     private ?OrderStatus $status = null;
 
-    public function __construct()
+    public function __construct(User $user)
     {
+        $this->setUser($user);
         $this->orderItem = new ArrayCollection();
+        $this->setReference();
     }
 
     public function getId(): ?int
@@ -54,9 +57,10 @@ class Order
         return $this->reference;
     }
 
-    public function setReference(string $reference): static
+    public function setReference(): static
     {
-        $this->reference = $reference;
+        $prefix = $this->user->getId().substr($this->user->getFirstName(),0,5).substr($this->user->getLastName(),0,5);
+        $this->reference = $prefix.uniqid();
 
         return $this;
     }

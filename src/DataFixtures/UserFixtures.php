@@ -10,6 +10,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class UserFixtures extends Fixture
 {
+    public const USER_REFERANCE = 'user';
     public function load(ObjectManager $manager): void
     {
 
@@ -20,6 +21,8 @@ class UserFixtures extends Fixture
             $user->setEmail('email'.$i.'@gmail.com');
             $user->addAddress($this->getReference(AddressFixtures::ADDRESS_REFERENCE, Address::class));
             $manager->persist($user);
+
+            $this->addReference(self::USER_REFERANCE.'_'.$i, $user);
         }
 
         $manager->flush();
