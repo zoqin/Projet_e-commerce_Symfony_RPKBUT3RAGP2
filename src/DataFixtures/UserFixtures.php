@@ -14,12 +14,14 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             $user = new User();
+
             $user->setFirstName('prenom'.$i);
             $user->setLastName('nom'.$i);
             $user->setEmail('email'.$i.'@gmail.com');
             $user->addAddress($this->getReference(AddressFixtures::ADDRESS_REFERENCE, Address::class));
+
             $manager->persist($user);
 
             $this->addReference(self::USER_REFERANCE.'_'.$i, $user);

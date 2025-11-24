@@ -25,6 +25,11 @@ class OrderItem
     #[ORM\ManyToOne(inversedBy: 'orderItem')]
     private ?Order $orderEntity = null;
 
+    public function __construct(Product $product)
+    {
+        $this->setProduct($product);
+        $this->setProductPrice();
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -54,9 +59,9 @@ class OrderItem
         return $this->productPrice;
     }
 
-    public function setProductPrice(float $productPrice): static
+    public function setProductPrice(): static
     {
-        $this->productPrice = $productPrice;
+        $this->productPrice = $this->product->getPrice();
 
         return $this;
     }

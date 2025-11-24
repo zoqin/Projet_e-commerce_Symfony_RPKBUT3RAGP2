@@ -13,7 +13,7 @@ class ProductFixtures extends Fixture
     public const PRODUCT_REFERANCE = 'product';
     public function load(ObjectManager $manager): void
     {
-        for($i = 0; $i < 10; $i++) {
+        for($i = 1; $i <= 10; $i++) {
             $product = new Product();
 
             $product->setName('Product ' . $i);
@@ -21,9 +21,9 @@ class ProductFixtures extends Fixture
             $product->addImage($this->getReference(ImageFixtures::IMAGE_REFERENCE, Image::class));
             $product->addCategory($this->getReference(CategoryFixtures::CATEGORY_REFERANCE.'_'.rand(1, 3), Category::class));
 
-            $this->addReference(self::PRODUCT_REFERANCE.'_'.$i, $product);
-
             $manager->persist($product);
+
+            $this->addReference(self::PRODUCT_REFERANCE.'_'.$i, $product);
         }
         $manager->flush();
     }
