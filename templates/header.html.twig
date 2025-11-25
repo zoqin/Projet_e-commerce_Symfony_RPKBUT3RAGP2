@@ -1,6 +1,38 @@
 <header>
-    <h1>{{ 'title'|trans }}</h1>
-    <nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
 
+
+            <a class="navbar-brand" href="{{ path('home') }}">
+                <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/satisfactory.png"
+                     alt="Logo"
+                     width="30"
+                     height="30"
+                     class="d-inline-block align-text-top">
+                <strong>{{ 'title'|trans }}</strong>
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {{ app.request.attributes.get('_route') == 'home' ? 'active' }}"
+                           href="{{ path('home') }}">
+                            {{ 'navbar.home'|trans }}
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            {{ 'navbar.menu'|trans }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">{{ 'navbar.menu.option1'|trans }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ 'navbar.menu.option1'|trans }}</a></li>
+{#                            <li><hr class="dropdown-divider"></li>#}
+{#                            <li><a class="dropdown-item" href="#">Tous les services</a></li>#}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 </header>
