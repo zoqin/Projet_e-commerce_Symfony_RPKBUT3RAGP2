@@ -1,0 +1,19 @@
+title: "Satisfactory Shop"
+navbar:
+  home: "Acceuil"
+  menu:
+    title: "Menu"
+    option1: __navbar.menu.option1
+    option2:
+  logout:
+    button: "Déconnexion"
+  login:
+    button: "Connexion"
+  register:
+    button: "Inscription"
+register:
+  title: "Inscription"
+  first_name: "Prénom"
+  last_name: "Nom"
+  password: "Mot de passe"
+  agree_terms: "Accepter les conditions"
