@@ -33,6 +33,9 @@ class UserFixtures extends Fixture
         $admin->setLastName('nomAdmin');
         $admin->setEmail('admin@admin.com');
         $admin->setPassword(password_hash('password', PASSWORD_DEFAULT));
+        $admin->addRole('ROLE_ADMIN');
+
+        $manager->persist($admin);
 
         $manager->flush();
     }

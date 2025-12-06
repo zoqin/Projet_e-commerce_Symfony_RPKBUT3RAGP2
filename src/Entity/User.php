@@ -184,4 +184,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
+
+    #fonction personnalisé
+
+    public function addRole(string $role): static
+    {
+        $this->roles[] = $role;
+        return $this;
+    }
 }
