@@ -49,11 +49,12 @@ class Product
     #[ORM\OneToMany(targetEntity: Image::class, mappedBy: 'product')]
     private Collection $images;
 
-    public function __construct()
+    public function __construct(int $stock = 0)
     {
         $this->category = new ArrayCollection();
         $this->orderItem = new ArrayCollection();
         $this->images = new ArrayCollection();
+        $this->setStock($stock);
     }
 
     public function getId(): ?int
@@ -109,9 +110,14 @@ class Product
         return $this->stock;
     }
 
-    public function setStock(int $stock): static
+    public function setStock(int $stock, bool $canBePreorder = false): static
     {
+        if ($stock < 0) {
+            throw new \InvalidArgumentException('Stock needs to be greater than 0');
+        }
+
         $this->stock = $stock;
+        $this->defineStatus($canBePreorder);
 
         return $this;
     }
@@ -209,6 +215,22 @@ class Product
             }
         }
 
+        return $this;
+    }
+
+    # Fonction personnalisé
+    private function defineStatus(bool $canBePreorder = false): void
+    {
+        if ($this->getStock() === 0) {
+            $canBePreorder ? $this->setStatus(ProductStatus::PRECOMMANDE) : $this->setStatus(ProductStatus::RUPTURE);
+        } else {
+            $this->setStatus(ProductStatus::DISPONIBLE);
+        }
+    }
+
+    public function updateStatus(bool $canBePreorder = false): static
+    {
+        $this->defineStatus($canBePreorder);
         return $this;
     }
 }

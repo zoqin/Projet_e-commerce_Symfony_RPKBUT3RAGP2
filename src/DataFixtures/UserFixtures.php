@@ -20,12 +20,19 @@ class UserFixtures extends Fixture
             $user->setFirstName('prenom'.$i);
             $user->setLastName('nom'.$i);
             $user->setEmail('email'.$i.'@gmail.com');
+            $user->setPassword(password_hash('password'.$i, PASSWORD_DEFAULT));
             $user->addAddress($this->getReference(AddressFixtures::ADDRESS_REFERENCE, Address::class));
 
             $manager->persist($user);
 
             $this->addReference(self::USER_REFERANCE.'_'.$i, $user);
         }
+
+        $admin = new User();
+        $admin->setFirstName('prenomAdmin');
+        $admin->setLastName('nomAdmin');
+        $admin->setEmail('admin@admin.com');
+        $admin->setPassword(password_hash('password', PASSWORD_DEFAULT));
 
         $manager->flush();
     }
