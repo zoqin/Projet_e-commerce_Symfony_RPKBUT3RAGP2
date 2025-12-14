@@ -36,5 +36,27 @@ admin:
     title: "Rupture"
   dashboard_product_preorder:
     title: "Précommande"
+  dashboard_sales:
+    month: "Mois"
+    amount: "Montant"
+    no_data: "Aucune vente enregistrée"
+  dashboard_sales_by_month:
+    title: "Ventes par Mois"
+  dashboard_categories:
+    title: "Produits par Type"
+    no_data: "Aucune catégorie trouvée"
+    products_count: >-
+      {count, plural,
+        =0 {aucun produit}
+        one {un produit}
+        other {# produits}
+      }
+  dashboard_orders:
+    title: "5 Dernières Commandes"
+    reference: "Référence"
+    date: "Date"
+    status: "Statut"
+    customer: "Client"
+    no_data: "Aucune commande pour le moment"
 
 

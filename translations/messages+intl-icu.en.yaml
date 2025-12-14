@@ -1,0 +1,60 @@
+title: "Satisfactory Shop"
+navbar:
+  home: "Home"
+  menu:
+    title: "Menu"
+    option1: __navbar.menu.option1
+    option2:
+  logout:
+    button: "Logout"
+  login:
+    button: "Log in"
+  register:
+    button: "Register"
+register:
+  title: "Register"
+  first_name: "First name"
+  last_name: "Last name"
+  password: "Password"
+  agree_terms: "Agree terms"
+admin:
+  block_title:
+    title: "Admin dashboard"
+  dashboard:
+    title: "FICSIT dashboard"
+  dashboard_product:
+    title: "Stock avaibility"
+    count: >-
+      {count, plural,
+        =0 {no article}
+        one {one article}
+        other {# articles}
+      }
+  dashboard_product_in_stock:
+    title: "In stock"
+  dashboard_product_out_of_order:
+    title: "Out of order"
+  dashboard_product_preorder:
+    title: "Preorder"
+  dashboard_sales:
+    month: "Month"
+    amount: "Amount"
+    no_data: "No sales recorded"
+  dashboard_sales_by_month:
+    title: "Sales by month"
+  dashboard_categories:
+    title: "Product by type"
+    no_data: "No categories found"
+    products_count: >-
+      {count, plural,
+        =0 {no product}
+        one {one product}
+        other {# products}
+      }
+  dashboard_orders:
+    title: "Last 5 orders"
+    reference: "Reference"
+    date: "Date"
+    status: "Statuts"
+    customer: "Customer"
+    no_data: "No orders yet"

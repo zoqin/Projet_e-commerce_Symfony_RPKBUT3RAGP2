@@ -33,6 +33,7 @@
             </table>
         </div>
 
+        {# --- Section disponibilité du stock --- #}
         <div class="row">
             <h3> {{ 'admin.dashboard_product.title'|trans }}</h3>
 
@@ -59,14 +60,14 @@
 
         {# --- Section Catégories --- #}
         <div class="row">
-            <h3>Produits par Type</h3>
+            <h3>{{ 'admin.dashboard_categories.title'|trans }}</h3>
             <ul>
                 {% for category in categoriesStats %}
                     <li>
-                        <strong>{{ category.name }}</strong> : {{ category.count }} produits
+                        <strong>{{ category.name }}</strong> : {{ 'admin.dashboard_categories.products_count'|trans({'count': (category.count|default(0)+0)})}}
                     </li>
                 {% else %}
-                    <li>Aucune catégorie trouvée.</li>
+                    <li>{{ 'admin.dashboard_categories.no_data'|trans }}</li>
                 {% endfor %}
             </ul>
         </div>
@@ -75,14 +76,14 @@
 
         {# --- Section Commandes --- #}
         <div class="row">
-            <h3>5 dernières Commandes</h3>
+            <h3>{{ 'admin.dashboard_orders.title'|trans }}</h3>
             <table>
                 <thead>
                 <tr>
-                    <th>Référence</th>
-                    <th>Date</th>
-                    <th>Statut</th>
-                    <th>Client</th>
+                    <th>{{ 'admin.dashboard_orders.reference'|trans }}</th>
+                    <th>{{ 'admin.dashboard_orders.date'|trans }}</th>
+                    <th>{{ 'admin.dashboard_orders.status'|trans }}</th>
+                    <th>{{ 'admin.dashboard_orders.customer'|trans }}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -97,12 +98,11 @@
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="4">Aucune commande pour le moment.</td>
+                        <td colspan="4">{{ 'admin.dashboard_orders.no_data'|trans }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </div>
-        {{ dump(fiveLastOrders) }}
     </div>
 {% endblock %}
