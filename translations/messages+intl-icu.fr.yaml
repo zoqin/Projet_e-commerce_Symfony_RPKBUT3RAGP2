@@ -1,5 +1,7 @@
 title: "Satisfactory Shop"
 navbar:
+  switch_to:
+    english: "Switch to english"
   home: "Acceuil"
   menu:
     title: "Menu"
