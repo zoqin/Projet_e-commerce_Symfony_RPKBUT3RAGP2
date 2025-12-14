@@ -27,17 +27,21 @@ class Order
     /**
      * @var Collection<int, OrderItem>
      */
-    #[ORM\OneToMany(targetEntity: OrderItem::class, mappedBy: 'orderEntity')]
+    #[ORM\OneToMany(targetEntity: OrderItem::class, mappedBy: 'orderEntity', cascade: ['persist', 'remove'])]
     private Collection $orderItem;
 
     #[ORM\Column(enumType: OrderStatus::class)]
     private ?OrderStatus $status = null;
+
+    #[ORM\Column]
+    private ?\DateTimeImmutable $createdAt = null;
 
     public function __construct(User $user)
     {
         $this->setUser($user);
         $this->orderItem = new ArrayCollection();
         $this->setReference();
+        $this->createdAt = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -115,6 +119,18 @@ class Order
     public function setStatus(OrderStatus $status): static
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

@@ -14,14 +14,16 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
     public const PRODUCT_REFERENCE = 'product';
     public function load(ObjectManager $manager): void
     {
-        for($i = 1; $i <= 10; $i++) {
+        for($i = 1; $i <= 24; $i++) {
             $product = new Product();
 
             $product->setName('Product'. $i);
             $product->setPrice(rand(1, 100));
             $product->addImage($this->getReference(ImageFixtures::IMAGE_REFERENCE, Image::class));
             $product->addCategory($this->getReference(CategoryFixtures::CATEGORY_REFERANCE.'_'.rand(1, 3), Category::class));
-            $product->setStock(rand(0, 25000));
+
+            $hasStock = rand(0, 1);
+            $product->setStock($hasStock ? rand(1, 25000) : 0, (bool) rand(0, 1));
 
             $manager->persist($product);
 

@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Order;
+use App\Enum\OrderStatus;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -40,4 +41,20 @@ class OrderRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function getTotalSalesByMonth(): array
+    {
+        return $this->createQueryBuilder('o')
+            ->select('YEAR(o.createdAt) as year')
+            ->addSelect('MONTH(o.createdAt) as month')
+            ->addSelect('SUM(oi.quantity * oi.productPrice) as totalSales')
+            ->leftJoin('o.orderItem', 'oi')
+            ->where('o.status = :status')
+            ->setParameter('status', OrderStatus::LIVREE)
+            ->groupBy('year', 'month')
+            ->orderBy('year', 'DESC')
+            ->addOrderBy('month', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }

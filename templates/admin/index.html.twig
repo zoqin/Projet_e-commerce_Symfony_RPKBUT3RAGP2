@@ -1,20 +1,108 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %} {{ 'admin.block_title.title'|trans }} {% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container">
+        <h1> {{ 'admin.dashboard.title'|trans }}</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        {# --- Section vente par mois --- #}
+        <div class="row">
+            <h3>{{ 'admin.dashboard_sales_by_month.title'|trans }}</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>{{ 'admin.dashboard_sales.month'|trans }}</th>
+                    <th>{{ 'admin.dashboard_sales.amount'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for sale in totalSalesByMonth|slice(0, 12) %}
+                    <tr>
+                        <td>{{ sale.month }}/{{ sale.year }}</td>
+                        <td>{{ sale.totalSales|number_format(2, ',', ' ') }} €</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td>
+                            {{ 'admin.dashboard_sales.no_data'|trans }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>D:/Etude/BUT/Symphony/Satisfactory Shop/src/Controller/AdminController.php</code></li>
-        <li>Your template at <code>D:/Etude/BUT/Symphony/Satisfactory Shop/templates/admin/index.html.twig</code></li>
-    </ul>
-</div>
+        <div class="row">
+            <h3> {{ 'admin.dashboard_product.title'|trans }}</h3>
+
+            <div class="stat-box">
+                <span class="label"> {{ 'admin.dashboard_product_in_stock.title'|trans }} :</span>
+                <strong>{{ statusStats.ratio.inStock }}%</strong>
+                <small>({{ 'admin.dashboard_product.count'|trans({'count': (statusStats.count.inStock|default(0)) + 0})}})</small>
+            </div>
+
+            <div class="stat-box">
+                <span class="label"> {{ 'admin.dashboard_product_out_of_order.title'|trans }} :</span>
+                <strong>{{ statusStats.ratio.outOfOrder }}%</strong>
+                <small>({{ 'admin.dashboard_product.count'|trans({'count': (statusStats.count.outOfOrder|default(0)) + 0})}})</small>
+            </div>
+
+            <div class="stat-box">
+                <span class="label"> {{ 'admin.dashboard_product_preorder.title'|trans }} :</span>
+                <strong>{{ statusStats.ratio.preorder }}%</strong>
+                <small>({{ 'admin.dashboard_product.count'|trans({'count': (statusStats.count.preorder|default(0)) + 0})}})</small>
+            </div>
+        </div>
+
+        <hr>
+
+        {# --- Section Catégories --- #}
+        <div class="row">
+            <h3>Produits par Type</h3>
+            <ul>
+                {% for category in categoriesStats %}
+                    <li>
+                        <strong>{{ category.name }}</strong> : {{ category.count }} produits
+                    </li>
+                {% else %}
+                    <li>Aucune catégorie trouvée.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <hr>
+
+        {# --- Section Commandes --- #}
+        <div class="row">
+            <h3>5 dernières Commandes</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Référence</th>
+                    <th>Date</th>
+                    <th>Statut</th>
+                    <th>Client</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for order in fiveLastOrders %}
+                    <tr>
+                        <td>{{ order.reference }}</td>
+                        <td>{{ order.createdAt|date('d/m/Y H:i') }}</td>
+                        <td>{{ order.status.value }}</td>
+                        <td>
+                            {{ order.user.email }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">Aucune commande pour le moment.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {{ dump(fiveLastOrders) }}
+    </div>
 {% endblock %}

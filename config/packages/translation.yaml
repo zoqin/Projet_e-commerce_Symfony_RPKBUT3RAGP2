@@ -6,7 +6,7 @@ framework:
           - '%kernel.project_dir%/templates'
         fallbacks:
             - en
-#        providers:
+        providers: ~
 #            crowdin:
 #                dsn: '%env(CROWDIN_DSN)%'
 #            loco:

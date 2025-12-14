@@ -21,7 +21,7 @@ class Category
     /**
      * @var Collection<int, Product>
      */
-    #[ORM\ManyToMany(targetEntity: Product::class, mappedBy: 'category')]
+    #[ORM\ManyToMany(targetEntity: Product::class, mappedBy: 'category', fetch: 'EXTRA_LAZY')]
     private Collection $products;
 
     public function __construct()

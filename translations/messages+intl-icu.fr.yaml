@@ -1,0 +1,40 @@
+title: "Satisfactory Shop"
+navbar:
+  home: "Acceuil"
+  menu:
+    title: "Menu"
+    option1: __navbar.menu.option1
+    option2:
+  logout:
+    button: "Déconnexion"
+  login:
+    button: "Connexion"
+  register:
+    button: "Inscription"
+register:
+  title: "Inscription"
+  first_name: "Prénom"
+  last_name: "Nom"
+  password: "Mot de passe"
+  agree_terms: "Accepter les conditions"
+admin:
+  block_title:
+    title: "Tableau de bord admin"
+  dashboard:
+    title: "Tableau de bord FICSIT"
+  dashboard_product:
+    title: "Disponibilité du stock"
+    count: >-
+      {count, plural,
+        =0 {aucun article}
+        one {un article}
+        other {# articles}
+      }
+  dashboard_product_in_stock:
+    title: "Disponbile"
+  dashboard_product_out_of_order:
+    title: "Rupture"
+  dashboard_product_preorder:
+    title: "Précommande"
+
+
