@@ -31,5 +31,9 @@
         </tbody>
     </table>
 
+    <div class="d-flex justify-content-center mt-4">
+        {{ knp_pagination_render(categories) }}
+    </div>
+
     <a href="{{ path('app_category_new') }}">Create new</a>
 {% endblock %}

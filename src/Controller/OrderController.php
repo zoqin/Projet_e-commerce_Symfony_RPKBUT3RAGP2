@@ -7,6 +7,7 @@ use App\Form\OrderEditType;
 use App\Form\OrderType;
 use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,10 +18,22 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 final class OrderController extends AbstractController
 {
     #[Route(name: 'app_order_index', methods: ['GET'])]
-    public function index(OrderRepository $orderRepository): Response
+    public function index(
+        OrderRepository $orderRepository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response
     {
+        $data = $orderRepository->findBy([], ['createdAt' => 'DESC']);
+
+        $orders = $paginator->paginate(
+            $data,
+            $request->query->getInt('page', 1),
+            9
+        );
+
         return $this->render('order/index.html.twig', [
-            'orders' => $orderRepository->findAll(),
+            'orders' => $orders,
         ]);
     }
 

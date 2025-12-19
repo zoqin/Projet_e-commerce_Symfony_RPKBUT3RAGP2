@@ -37,5 +37,9 @@
         </tbody>
     </table>
 
+    <div class="d-flex justify-content-center mt-4">
+        {{ knp_pagination_render(orders) }}
+    </div>
+
 {#    <a href="{{ path('app_order_new') }}">Create new</a>#}
 {% endblock %}
