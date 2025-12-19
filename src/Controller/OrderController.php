@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Order;
+use App\Form\OrderEditType;
 use App\Form\OrderType;
 use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,25 +24,25 @@ final class OrderController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_order_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $order = new Order();
-        $form = $this->createForm(OrderType::class, $order);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($order);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_order_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('order/new.html.twig', [
-            'order' => $order,
-            'form' => $form,
-        ]);
-    }
+//    #[Route('/new', name: 'app_order_new', methods: ['GET', 'POST'])]
+//    public function new(Request $request, EntityManagerInterface $entityManager): Response
+//    {
+//        $order = new Order();
+//        $form = $this->createForm(OrderType::class, $order);
+//        $form->handleRequest($request);
+//
+//        if ($form->isSubmitted() && $form->isValid()) {
+//            $entityManager->persist($order);
+//            $entityManager->flush();
+//
+//            return $this->redirectToRoute('app_order_index', [], Response::HTTP_SEE_OTHER);
+//        }
+//
+//        return $this->render('order/new.html.twig', [
+//            'order' => $order,
+//            'form' => $form,
+//        ]);
+//    }
 
     #[Route('/{id}', name: 'app_order_show', methods: ['GET'])]
     public function show(Order $order): Response
@@ -55,7 +56,7 @@ final class OrderController extends AbstractController
     #[isGranted('ROLE_ADMIN')]
     public function edit(Request $request, Order $order, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(OrderType::class, $order);
+        $form = $this->createForm(OrderEditType::class, $order);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

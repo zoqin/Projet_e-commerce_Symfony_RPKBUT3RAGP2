@@ -17,7 +17,11 @@
             </tr>
             <tr>
                 <th>Status</th>
-                <td>{{ order.status.value }}</td>
+                <td>
+                    <span class="badge bg-{{ order.status.getBootstrapColor }}">
+                        {{ order.status.value }}
+                    </span>
+                </td>
             </tr>
         </tbody>
     </table>

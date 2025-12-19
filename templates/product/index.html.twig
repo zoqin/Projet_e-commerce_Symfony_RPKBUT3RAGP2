@@ -25,7 +25,11 @@
                 <td>{{ product.price }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.stock }}</td>
-                <td>{{ product.status.value }}</td>
+                <td>
+                    <span class="badge bg-{{ product.status.getBootstrapColor }}">
+                        {{ product.status.value }}
+                    </span>
+                </td>
                 <td>
                     <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
                     <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
