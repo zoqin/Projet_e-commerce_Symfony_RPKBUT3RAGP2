@@ -30,7 +30,7 @@
                     </td>
                     <td>{{ item.product.price * item.quantity }} €</td>
                     <td>
-                        <a href="{{ path('app_cart_remove', {id: item.product.id}) }}" class="btn btn-sm btn-danger">{{ 'common.delet'|trans }}</a>
+                        <a href="{{ path('app_cart_remove', {id: item.product.id}) }}" class="btn btn-sm btn-danger">{{ 'common.delete'|trans }}</a>
                     </td>
                 </tr>
             {% endfor %}
