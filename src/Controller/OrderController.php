@@ -75,6 +75,8 @@ final class OrderController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
+            $this->addFlash('success', 'La commande a bien été modifié');
+
             return $this->redirectToRoute('app_order_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -84,15 +86,15 @@ final class OrderController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_order_delete', methods: ['POST'])]
-    #[isGranted('ROLE_ADMIN')]
-    public function delete(Request $request, Order $order, EntityManagerInterface $entityManager): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$order->getId(), $request->getPayload()->getString('_token'))) {
-            $entityManager->remove($order);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('app_order_index', [], Response::HTTP_SEE_OTHER);
-    }
+//    #[Route('/{id}', name: 'app_order_delete', methods: ['POST'])]
+//    #[isGranted('ROLE_ADMIN')]
+//    public function delete(Request $request, Order $order, EntityManagerInterface $entityManager): Response
+//    {
+//        if ($this->isCsrfTokenValid('delete'.$order->getId(), $request->getPayload()->getString('_token'))) {
+//            $entityManager->remove($order);
+//            $entityManager->flush();
+//        }
+//
+//        return $this->redirectToRoute('app_order_index', [], Response::HTTP_SEE_OTHER);
+//    }
 }

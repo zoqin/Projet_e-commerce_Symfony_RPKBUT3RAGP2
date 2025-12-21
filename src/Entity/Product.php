@@ -7,6 +7,7 @@ use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
@@ -17,15 +18,26 @@ class Product
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotNull]
+    #[Assert\Length(
+        min: 1,
+        max: 255,
+        minMessage: "Le nom du produit doit faire plus de 1 caractère",
+        maxMessage: "Le nom du produit doit faire moin de 255 caractères"
+    )]
     private ?string $name = null;
 
     #[ORM\Column]
+    #[Assert\NotNull]
+    #[Assert\Positive(message: "Le prix doit être suppérieur à 0")]
     private ?float $price = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
     #[ORM\Column]
+    #[Assert\NotNull]
+    #[Assert\PositiveOrZero]
     private ?int $stock = null;
 
     #[ORM\Column(enumType: ProductStatus::class)]

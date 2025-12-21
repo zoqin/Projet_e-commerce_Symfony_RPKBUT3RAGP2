@@ -19,6 +19,7 @@ class CategoryType extends AbstractType
                 'class' => Product::class,
                 'choice_label' => 'id',
                 'multiple' => true,
+                'required' => false,
             ])
         ;
     }
