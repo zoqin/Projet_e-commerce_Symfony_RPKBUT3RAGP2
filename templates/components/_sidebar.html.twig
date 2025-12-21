@@ -4,48 +4,48 @@
 
         {% if is_granted('ROLE_ADMIN') %}
             <li class="w-100 mt-3">
-                <span class="text-uppercase small text-muted fw-bold d-none d-sm-inline">Administration</span>
+                <span class="text-uppercase small text-muted fw-bold d-none d-sm-inline">{{ 'common.administration'|trans }}</span>
             </li>
 
             <li class="nav-item w-100">
                 <a href="{{ path('app_admin') }}"
                    class="nav-link px-0 align-middle text-dark {{ app.request.attributes.get('_route') starts with 'app_admin' ? 'active' }}">
-                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">{{ 'common.dashboard'|trans }}</span>
                 </a>
             </li>
             <li class="nav-item w-100">
                 <a href="{{ path('app_user_index') }}"
                    class="nav-link px-0 align-middle text-dark {{ app.request.attributes.get('_route') starts with 'app_user' ? 'active' }}">
-                    <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Utilisateurs</span>
+                    <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">{{ 'common.users'|trans }}</span>
                 </a>
             </li>
             <li class="nav-item w-100">
                 <a href="{{ path('app_product_index') }}"
                    class="nav-link px-0 align-middle text-dark {{ app.request.attributes.get('_route') starts with 'app_product' ? 'active' }}">
-                    <i class="fs-4 bi-upc"></i> <span class="ms-1 d-none d-sm-inline">Produits</span>
+                    <i class="fs-4 bi-upc"></i> <span class="ms-1 d-none d-sm-inline">{{ 'common.products'|trans }}</span>
                 </a>
             </li>
             <li class="nav-item w-100">
                 <a href="{{ path('app_order_index') }}"
                    class="nav-link px-0 align-middle text-dark {{ app.request.attributes.get('_route') starts with 'app_order' ? 'active' }}">
-                    <i class="fs-4 bi-box-seam"></i> <span class="ms-1 d-none d-sm-inline">Commandes</span>
+                    <i class="fs-4 bi-box-seam"></i> <span class="ms-1 d-none d-sm-inline">{{ 'common.orders'|trans }}</span>
                 </a>
             </li>
             <li class="nav-item w-100">
                 <a href="{{ path('app_category_index') }}"
                    class="nav-link px-0 align-middle text-dark {{ app.request.attributes.get('_route') starts with 'app_category' ? 'active' }}">
-                    <i class="fs-4 bi-tags"></i> <span class="ms-1 d-none d-sm-inline">Catégories</span>
+                    <i class="fs-4 bi-tags"></i> <span class="ms-1 d-none d-sm-inline">{{ 'common.categories'|trans }}</span>
                 </a>
             </li>
         {% endif %}
 
         {% if app.user %}
             <li class="w-100 mt-3">
-                <span class="text-uppercase small text-muted fw-bold d-none d-sm-inline">Mon Espace</span>
+                <span class="text-uppercase small text-muted fw-bold d-none d-sm-inline">{{ 'sidebar.my_space'|trans }}</span>
             </li>
             <li class="nav-item w-100">
                 <a href="#" class="nav-link px-0 align-middle text-dark">
-                    <i class="fs-4 bi-person-circle"></i> <span class="ms-1 d-none d-sm-inline">Profil</span>
+                    <i class="fs-4 bi-person-circle"></i> <span class="ms-1 d-none d-sm-inline">{{ 'common.profil'|trans }}</span>
                 </a>
             </li>
         {% endif %}

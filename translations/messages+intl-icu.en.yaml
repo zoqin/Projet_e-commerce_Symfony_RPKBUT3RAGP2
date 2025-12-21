@@ -4,6 +4,7 @@ common:
   last_name: "Last name"
   name: "Name"
   product: "Product"
+  products: "Products"
   price: "Price"
   quantity: "Quantity"
   total: "Total"
@@ -15,6 +16,11 @@ common:
   email: "Email"
   roles: "Roles"
   id: "Id"
+  administration: "Administration"
+  orders: "Orders"
+  categories: "Categories"
+  profil: "Profil"
+  dashboard: "Dashboard"
 index:
   show: "Show"
   edit: "Edit"
@@ -94,3 +100,5 @@ cart:
   title: "My cart"
   actions: "Actions"
   empty: "Your cart is empty."
+sidebar:
+  my_space: "My space"

@@ -4,6 +4,7 @@ common:
   last_name: "Nom"
   name: "Nom"
   product: "Product"
+  products: "Produits"
   price: "Prix"
   quantity: "Quantité"
   total: "Total"
@@ -15,6 +16,11 @@ common:
   email: "E-mail"
   roles: "Roles"
   id: "Id"
+  administration: "Administration"
+  orders: "Commandes"
+  categories: "Catégories"
+  profil: "Profil"
+  dashboard: "Tableau de bord"
 index:
   show: "Voir"
   edit: "Modifier"
@@ -94,5 +100,6 @@ cart:
   title: "Mon Pannier"
   actions: "Actions"
   empty: "Votre panier est vide."
-
+sidebar:
+  my_space: "Mon espace"
 
