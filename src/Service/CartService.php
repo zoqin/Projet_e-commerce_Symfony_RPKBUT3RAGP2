@@ -16,7 +16,7 @@ class CartService
     }
 
     public function getSession() {
-        $session = $this->requestStack->getSession();
+        return $session = $this->requestStack->getSession();
     }
 
     public function addProduct(int $id) {
@@ -41,6 +41,8 @@ class CartService
                 unset($cart[$id]);
             }
         }
+
+        $this->getSession()->set("cart", $cart);
     }
 
     public function removeProducts(int $id) {

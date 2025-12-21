@@ -2,11 +2,16 @@
 
 namespace App\Controller;
 
+use App\Entity\Order;
+use App\Entity\OrderItem;
+use App\Enum\OrderStatus;
 use App\Repository\ProductRepository;
 use App\Service\CartService;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/cart')]
 final class CartController extends AbstractController
@@ -46,9 +51,55 @@ final class CartController extends AbstractController
     }
 
     #[Route('/clear', name: 'app_cart_clear')]
-    public function clear(CartService $cartService, int $id): Response
+    public function clear(CartService $cartService): Response
     {
         $cartService->clear();
+
+        return $this->redirectToRoute('app_cart_index');
+    }
+
+    #[Route('/validate', name: 'app_cart_validate')]
+    #[IsGranted('ROLE_USER')]
+    public function validate(CartService $cartService, EntityManagerInterface $entityManager): Response
+    {
+        $cart = $cartService->getCart();
+
+        if(empty($cart)) {
+            $this->addFlash('warning', "Votre panier est vide");
+            return $this->redirectToRoute('app_cart_index');
+        }
+
+        $order = new Order($this->getUser());
+        $order->setStatus(OrderStatus::PREPARATION);
+
+        $entityManager->persist($order);
+
+        foreach ($cart as $item) {
+            $product = $item['product'];
+            $quantity = $item['quantity'];
+
+            if($product->getStock() < $quantity) {
+                $this->addFlash(
+                    'warning',
+                    $product->getName()." n'a plus assez de stock (Dispo : ".$product->getStock().")"
+                );
+
+                return $this->redirectToRoute('app_cart_index');
+            }
+
+            $product->setStock($product->getStock() - $quantity);
+
+            $orderItem = new OrderItem($product);
+            $orderItem->setQuantity($quantity);
+            $orderItem->setOrderEntity($order);
+
+            $entityManager->persist($orderItem);
+        }
+
+        $entityManager->flush();
+
+        $cartService->clear();
+        $this->addFlash('success', 'Votre commande a été validé avec succès');
 
         return $this->redirectToRoute('app_cart_index');
     }

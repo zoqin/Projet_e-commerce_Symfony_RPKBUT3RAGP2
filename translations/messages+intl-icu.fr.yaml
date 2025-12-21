@@ -1,4 +1,15 @@
 title: "Satisfactory Shop"
+common:
+  first_name: "Prénom"
+  last_name: "Nom"
+  name: "Nom"
+  product: "Product"
+  price: "Prix"
+  quantity: "Quantité"
+  total: "Total"
+  delet: "Supprimer"
+return:
+  products: "Retourner aux produits"
 navbar:
   switch_to:
     english: "Switch to english"
@@ -60,5 +71,9 @@ admin:
     status: "Statut"
     customer: "Client"
     no_data: "Aucune commande pour le moment"
+cart:
+  title: "Mon Pannier"
+  actions: "Actions"
+  empty: "Votre panier est vide."
 
 

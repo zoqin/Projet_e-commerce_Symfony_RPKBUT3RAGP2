@@ -54,6 +54,9 @@
 
                 <ul class="navbar-nav ms-auto">
                     {% if app.user %}
+                    <a href="{{ path('app_cart_index') }}" class="nav-link btn btn-primary me-2 {{ app.request.attributes.get('_route') starts with 'app_cart' ? 'active' }}">
+                        <i class="bi bi-cart"></i>
+                    </a>
                     <li class="nav-item">
                         <a class="nav-link {{ app.request.attributes.get('_route') == 'app_logout' ? 'active' }}" href="{{ path('app_logout') }}">
                             <i class="bi bi-box-arrow-right me-2"></i> {{ 'navbar.logout.button'|trans }}
