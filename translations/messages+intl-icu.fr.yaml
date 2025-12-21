@@ -23,6 +23,8 @@ edit:
 return:
   users: "Retourner aux utilisateurs"
   products: "Retourner aux produits"
+new:
+  user: "Nouvelle utilisateur"
 navbar:
   switch_to:
     english: "Switch to english"
