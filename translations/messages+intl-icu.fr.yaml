@@ -18,6 +18,8 @@ common:
 index:
   show: "Voir"
   edit: "Modifier"
+edit:
+  user: "Modifier l'utilisateur"
 return:
   users: "Retourner aux utilisateurs"
   products: "Retourner aux produits"
