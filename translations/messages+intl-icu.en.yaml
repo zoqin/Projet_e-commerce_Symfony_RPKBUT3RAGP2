@@ -19,7 +19,8 @@ index:
   show: "Show"
   edit: "Edit"
 return:
-  products: "Return to products"
+  users: "Back to users"
+  products: "Back to products"
 navbar:
   switch_to:
     french: "Passer en Français"

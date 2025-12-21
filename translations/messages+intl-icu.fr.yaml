@@ -19,6 +19,7 @@ index:
   show: "Voir"
   edit: "Modifier"
 return:
+  users: "Retourner aux utilisateurs"
   products: "Retourner aux produits"
 navbar:
   switch_to:

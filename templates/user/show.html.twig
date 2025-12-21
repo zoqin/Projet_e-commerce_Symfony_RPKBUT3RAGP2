@@ -3,40 +3,40 @@
 {% block title %}User{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
+    <h1>{{ 'common.user'|trans }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{ 'common.id'|trans }}</th>
                 <td>{{ user.id }}</td>
             </tr>
             <tr>
-                <th>Email</th>
+                <th>{{ 'common.email'|trans }}</th>
                 <td>{{ user.email }}</td>
             </tr>
             <tr>
-                <th>FirstName</th>
+                <th>{{ 'common.first_name'|trans }}</th>
                 <td>{{ user.firstName }}</td>
             </tr>
             <tr>
-                <th>LastName</th>
+                <th>{{ 'common.last_name'|trans }}</th>
                 <td>{{ user.lastName }}</td>
             </tr>
             <tr>
-                <th>Roles</th>
+                <th>{{ 'common.roles'|trans }}</th>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
             </tr>
             <tr>
-                <th>Password</th>
+                <th>{{ 'common.password'|trans }}</th>
                 <td>{{ user.password }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+    <a href="{{ path('app_user_index') }}">{{ 'return.users'|trans }}</a>
 
-    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+    <a href="{{ path('app_user_edit', {'id': user.id}) }}">{{ 'index.edit'|trans }}</a>
 
     {{ include('user/_delete_form.html.twig') }}
 {% endblock %}
