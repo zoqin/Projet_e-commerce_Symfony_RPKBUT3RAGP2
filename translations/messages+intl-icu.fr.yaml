@@ -7,7 +7,17 @@ common:
   price: "Prix"
   quantity: "Quantité"
   total: "Total"
-  delet: "Supprimer"
+  delete: "Supprimer"
+  password: "Mot de pass"
+  actions: "Actions"
+  user: "Utilisateur"
+  users: "Utilisateurs"
+  email: "E-mail"
+  roles: "Roles"
+  id: "Id"
+index:
+  show: "Voir"
+  edit: "Modifier"
 return:
   products: "Retourner aux produits"
 navbar:
@@ -71,6 +81,10 @@ admin:
     status: "Statut"
     customer: "Client"
     no_data: "Aucune commande pour le moment"
+user:
+  title: "Index utilisateur"
+  no_data: "Aucun utilisateur trouvé"
+  create_new: "Ajouter un nouvelle utilisateur"
 cart:
   title: "Mon Pannier"
   actions: "Actions"

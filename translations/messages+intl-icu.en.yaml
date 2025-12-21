@@ -1,4 +1,25 @@
 title: "Satisfactory Shop"
+common:
+  first_name: "First name"
+  last_name: "Last name"
+  name: "Name"
+  product: "Product"
+  price: "Price"
+  quantity: "Quantity"
+  total: "Total"
+  delete: "Delete"
+  password: "Password"
+  actions: "Actions"
+  user: "User"
+  users: "Users"
+  email: "Email"
+  roles: "Roles"
+  id: "Id"
+index:
+  show: "Show"
+  edit: "Edit"
+return:
+  products: "Return to products"
 navbar:
   switch_to:
     french: "Passer en Français"
@@ -60,3 +81,11 @@ admin:
     status: "Statuts"
     customer: "Customer"
     no_data: "No orders yet"
+user:
+  title: "User index"
+  no_data: "No user found"
+  create_new: "Create new"
+cart:
+  title: "My cart"
+  actions: "Actions"
+  empty: "Your cart is empty."

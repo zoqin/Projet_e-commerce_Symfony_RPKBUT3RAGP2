@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}{{ 'user.title'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
+    <h1>{{ 'common.users'|trans }}</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Email</th>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>Roles</th>
-                <th>Password</th>
-                <th>actions</th>
+                <th>{{ 'common.id'|trans }}</th>
+                <th>{{ 'common.email'|trans }}</th>
+                <th>{{ 'common.first_name'|trans }}</th>
+                <th>{{ 'common.last_name'|trans }}</th>
+                <th>{{ 'common.roles'|trans }}</th>
+                <th>{{ 'common.password'|trans }}</th>
+                <th>{{ 'common.actions'|trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -27,13 +27,13 @@
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>{{ user.password }}</td>
                 <td>
-                    <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+                    <a href="{{ path('app_user_show', {'id': user.id}) }}">{{ 'index.show'|trans }}</a>
+                    <a href="{{ path('app_user_edit', {'id': user.id}) }}">{{ 'index.edit'|trans }}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">{{ 'user.no_data'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -43,5 +43,5 @@
         {{ knp_pagination_render(users) }}
     </div>
 
-    <a href="{{ path('app_user_new') }}">Create new</a>
+    <a href="{{ path('app_user_new') }}">{{ 'user.create_new'|trans }}</a>
 {% endblock %}
