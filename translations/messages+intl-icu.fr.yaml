@@ -26,6 +26,7 @@ common:
   preorder: "Précommande"
   add: "Ajouter"
   unavailable: "Indisponbile"
+  logout: "Déconnexion"
 index:
   show: "Voir"
   edit: "Modifier"
@@ -115,4 +116,8 @@ product_search:
   search:
     search_placeholder: "Rechercher un produit..."
     no_data: "Aucun produit trouvé pour cette recherche"
+security:
+  please_sign_in: "Veuillez vous connecter"
+  remember_me: "Ce souvenir de moi"
+  sign_in: "Se connecter"
 

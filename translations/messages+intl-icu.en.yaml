@@ -26,6 +26,7 @@ common:
   preorder: "Preorder"
   add: "Add"
   unavailable: "Unavailable"
+  logout: "Logout"
 index:
   show: "Show"
   edit: "Edit"
@@ -115,3 +116,7 @@ product_search:
   search:
     search_placeholder: "Can you find your product ?"
     no_data: "Apparently you can't"
+security:
+  please_sign_in: "Please sign in"
+  remember_me: "Remember me"
+  sign_in: "Sign in"
