@@ -27,16 +27,22 @@ common:
   add: "Ajouter"
   unavailable: "Indisponbile"
   logout: "Déconnexion"
+  description: "Description"
+  stock: "Stock"
+  statu: "Statu"
+  status: "Status"
 index:
   show: "Voir"
   edit: "Modifier"
 edit:
   user: "Modifier l'utilisateur"
+  product: "Modifier le produit"
 return:
   users: "Retourner aux utilisateurs"
   products: "Retourner aux produits"
 new:
   user: "Nouvelle utilisateur"
+  product: "Nouveau produit"
 navbar:
   switch_to:
     english: "Switch to english"
@@ -102,6 +108,11 @@ user:
   title: "Index utilisateur"
   no_data: "Aucun utilisateur trouvé"
   create_new: "Ajouter un nouvelle utilisateur"
+product:
+  index:
+    title: "Index produits"
+  no_data: "Aucun produit trouvé"
+  create_new: "Ajouter un nouveau produit"
 cart:
   title: "Mon Pannier"
   actions: "Actions"
