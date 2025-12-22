@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Order{% endblock %}
+{% block title %}{{ 'common.order'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Order</h1>
+    <h1>{{ 'common.order'|trans }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{ 'common.id'|trans }}</th>
                 <td>{{ order.id }}</td>
             </tr>
             <tr>
-                <th>Reference</th>
+                <th>{{ 'common.reference'|trans }}</th>
                 <td>{{ order.reference }}</td>
             </tr>
             <tr>
-                <th>Status</th>
+                <th>{{ 'common.status'|trans }}</th>
                 <td>
                     <span class="badge bg-{{ order.status.getBootstrapColor }}">
                         {{ order.status.value }}
@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_order_index') }}">back to list</a>
+    <a href="{{ path('app_order_index') }}">{{ 'return.orders'|trans }}</a>
 
-    <a href="{{ path('app_order_edit', {'id': order.id}) }}">edit</a>
+    <a href="{{ path('app_order_edit', {'id': order.id}) }}">{{ 'index.edit'|trans }}</a>
 
 {#    {{ include('order/_delete_form.html.twig') }}#}
 {% endblock %}

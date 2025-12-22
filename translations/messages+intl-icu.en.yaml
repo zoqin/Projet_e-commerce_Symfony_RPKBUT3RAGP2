@@ -17,6 +17,7 @@ common:
   roles: "Roles"
   id: "Id"
   administration: "Administration"
+  order: "order"
   orders: "Orders"
   categories: "Categories"
   profil: "Profil"
@@ -30,18 +31,22 @@ common:
   stock: "Stock"
   statu: "Statu"
   status: "Status"
+  reference: "reference"
 index:
   show: "Show"
   edit: "Edit"
 edit:
   user: "Edit user"
   product: "Edit product"
+  order: "Modifier la commande"
 return:
   users: "Back to users"
   products: "Back to products"
+  orders: "Retourner aux commandes"
 new:
   user: "New user"
   product: "New product"
+  order: "Nouvelle commande"
 navbar:
   switch_to:
     french: "Passer en Français"
@@ -112,6 +117,11 @@ product:
     title: "Products index"
   no_data: "No product found"
   create_new: "Create new product"
+order:
+  index:
+    title: "Orders index"
+  no_data: "No order found"
+  create_new: "Create new order"
 cart:
   title: "My cart"
   actions: "Actions"
