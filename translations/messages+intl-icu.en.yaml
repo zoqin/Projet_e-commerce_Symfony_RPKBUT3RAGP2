@@ -136,6 +136,8 @@ cart:
   title: "My cart"
   actions: "Actions"
   empty: "Your cart is empty."
+  emptying_cart: "Clear cart"
+  check_out: "Check out"
 sidebar:
   my_space: "My space"
 shop_index:

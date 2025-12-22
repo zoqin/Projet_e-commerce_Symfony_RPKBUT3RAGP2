@@ -136,6 +136,8 @@ cart:
   title: "Mon Pannier"
   actions: "Actions"
   empty: "Votre panier est vide."
+  emptying_cart: "Vider le panier"
+  check_out: "Payer et valider la commande"
 sidebar:
   my_space: "Mon espace"
 shop_index:
