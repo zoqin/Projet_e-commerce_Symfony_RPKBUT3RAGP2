@@ -129,7 +129,7 @@ order:
   create_new: "Ajouter une nouvelle commande"
 category:
   index:
-    titles: "Index catégories"
+    title: "Index catégories"
   no_data: "Aucune catégorie trouvé"
   create_new: "Ajouter une nouvelle catégorie"
 cart:
@@ -143,7 +143,7 @@ sidebar:
 shop_index:
   welcome:
     title: "Bienvenue dans la boutique Satisfactory"
-    text: "Achetez un maximum de produit pour votre usine gargantuesque"
+    text: "Acheter un maximum de produit pour votre usine gargantuesque"
 product_search:
   search:
     search_placeholder: "Rechercher un produit..."

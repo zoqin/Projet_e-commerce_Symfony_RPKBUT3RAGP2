@@ -129,7 +129,7 @@ order:
   create_new: "Create new order"
 category:
   index:
-    titles: "Categories index"
+    title: "Categories index"
   no_data: "No category found"
   create_new: "Create new category"
 cart:
