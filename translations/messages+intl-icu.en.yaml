@@ -28,10 +28,11 @@ common:
   add: "Add"
   unavailable: "Unavailable"
   logout: "Logout"
+  description: "Description"
   stock: "Stock"
   statu: "Statu"
   status: "Status"
-  reference: "reference"
+  reference: "Reference"
 index:
   show: "Show"
   edit: "Edit"
@@ -42,7 +43,7 @@ edit:
 return:
   users: "Back to users"
   products: "Back to products"
-  orders: "Retourner aux commandes"
+  orders: "Back to orders"
 new:
   user: "New user"
   product: "New product"
