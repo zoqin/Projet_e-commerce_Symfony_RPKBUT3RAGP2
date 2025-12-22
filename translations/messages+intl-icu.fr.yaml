@@ -21,6 +21,11 @@ common:
   categories: "Catégories"
   profil: "Profil"
   dashboard: "Tableau de bord"
+  reset: "Réinitialiser"
+  out_of_order: "Rupture"
+  preorder: "Précommande"
+  add: "Ajouter"
+  unavailable: "Indisponbile"
 index:
   show: "Voir"
   edit: "Modifier"
@@ -102,4 +107,12 @@ cart:
   empty: "Votre panier est vide."
 sidebar:
   my_space: "Mon espace"
+shop_index:
+  welcome:
+    title: "Bienvenue dans la boutique Satisfactory"
+    text: "Achetez un maximum de produit pour votre usine gargantuesque"
+product_search:
+  search:
+    search_placeholder: "Rechercher un produit..."
+    no_data: "Aucun produit trouvé pour cette recherche"
 

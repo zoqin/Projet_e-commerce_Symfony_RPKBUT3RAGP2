@@ -21,6 +21,11 @@ common:
   categories: "Categories"
   profil: "Profil"
   dashboard: "Dashboard"
+  reset: "Reset"
+  out_of_order: "Out of order"
+  preorder: "Preorder"
+  add: "Add"
+  unavailable: "Unavailable"
 index:
   show: "Show"
   edit: "Edit"
@@ -102,3 +107,11 @@ cart:
   empty: "Your cart is empty."
 sidebar:
   my_space: "My space"
+shop_index:
+  welcome:
+    title: "Welcome to the Satisfactory shop"
+    text: "If you are reading this, you need to buy everything. Sorry"
+product_search:
+  search:
+    search_placeholder: "Can you find your product ?"
+    no_data: "Apparently you can't"

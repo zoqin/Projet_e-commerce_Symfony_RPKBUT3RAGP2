@@ -7,6 +7,7 @@ use App\Repository\ProductRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
+use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 
@@ -33,9 +34,9 @@ final class ProductSearch
 
     public function getProducts(): array
     {
-        if (empty($this->query)) {
-            return $this->productRepository->findBy([], ['id' => 'DESC'], 10);
-        }
+//        if (empty($this->query)) {
+//            return $this->productRepository->findBy([], ['id' => 'DESC'], 10);
+//        }
 
         $qb = $this->productRepository->createQueryBuilder('p');
 
@@ -54,5 +55,12 @@ final class ProductSearch
             ->setMaxResults(9)
             ->getQuery()
             ->getResult();
+    }
+
+    #[LiveAction]
+    public function clearFilters(): void
+    {
+        $this->query = '';
+        $this->selectedCategories = [];
     }
 }
