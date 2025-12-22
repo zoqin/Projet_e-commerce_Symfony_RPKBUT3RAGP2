@@ -17,8 +17,9 @@ common:
   roles: "Roles"
   id: "Id"
   administration: "Administration"
-  order: "order"
+  order: "Order"
   orders: "Orders"
+  category: "Category"
   categories: "Categories"
   profil: "Profil"
   dashboard: "Dashboard"
@@ -39,15 +40,18 @@ index:
 edit:
   user: "Edit user"
   product: "Edit product"
-  order: "Modifier la commande"
+  order: "Edit order"
+  category: "Edit category"
 return:
   users: "Back to users"
   products: "Back to products"
   orders: "Back to orders"
+  categories: "Back to categories"
 new:
   user: "New user"
   product: "New product"
-  order: "Nouvelle commande"
+  order: "New order"
+  category: "New category"
 navbar:
   switch_to:
     french: "Passer en Français"
@@ -123,6 +127,11 @@ order:
     title: "Orders index"
   no_data: "No order found"
   create_new: "Create new order"
+category:
+  index:
+    titles: "Categories index"
+  no_data: "No category found"
+  create_new: "Create new category"
 cart:
   title: "My cart"
   actions: "Actions"

@@ -19,6 +19,7 @@ common:
   administration: "Administration"
   order: "Commande"
   orders: "Commandes"
+  category: "Catégorie"
   categories: "Catégories"
   profil: "Profil"
   dashboard: "Tableau de bord"
@@ -40,14 +41,17 @@ edit:
   user: "Modifier l'utilisateur"
   product: "Modifier le produit"
   order: "Modifier la commande"
+  category: "Modifier la catégorie"
 return:
   users: "Retourner aux utilisateurs"
   products: "Retourner aux produits"
   orders: "Retourner aux commandes"
+  categories: "Retourner aux catégories"
 new:
   user: "Nouvelle utilisateur"
   product: "Nouveau produit"
   order: "Nouvelle commande"
+  category: "Nouvelle catégorie"
 navbar:
   switch_to:
     english: "Switch to english"
@@ -123,6 +127,11 @@ order:
     title: "Index commandes"
   no_data: "Aucune commande trouvé"
   create_new: "Ajouter une nouvelle commande"
+category:
+  index:
+    titles: "Index catégories"
+  no_data: "Aucune catégorie trouvé"
+  create_new: "Ajouter une nouvelle catégorie"
 cart:
   title: "Mon Pannier"
   actions: "Actions"
